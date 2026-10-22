@@ -1,0 +1,6 @@
+
+Flask
+chromadb
+ollama
+sentence-transformers
+PyMuPDF
