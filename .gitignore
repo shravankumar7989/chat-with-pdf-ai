@@ -1,0 +1,16 @@
+
+.venv/
+
+.venv/
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+uploads/
+data/chunks.json
+data/embeddings.npy
+data/chroma_db/
+
+data/*.pdf

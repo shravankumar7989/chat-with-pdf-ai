@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Intelligence | AI Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="app-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">✦</div>
+                <div>
+                    <h2>PDF Intelligence</h2>
+                    <p>Your personal document AI</p>
+                </div>
+            </div>
+
+            <button class="new-chat-btn" id="newChatBtn">
+                <span>＋</span> New conversation
+            </button>
+
+            
+    <div class="sidebar-section">
+        <p class="section-label">YOUR WORKSPACE</p>
+
+        <form id="uploadForm" class="upload-form">
+            <label for="pdfFile" class="upload-zone">
+                <span class="upload-icon">↑</span>
+                <strong>Upload a PDF</strong>
+                <small>Click to browse · PDF only</small>
+                <input
+                    type="file"
+                    id="pdfFile"
+                    name="file"
+                    accept=".pdf,application/pdf"
+                    required
+                >
+            </label>
+
+            <button type="submit" id="uploadBtn" class="upload-btn">
+                Add to knowledge base
+            </button>
+
+            <p id="uploadStatus" class="upload-status" role="status">
+                Your documents stay on this computer.
+            </p>
+        </form>
+
+        <div class="document-card" id="documentCard">
+            <div class="document-icon">PDF</div>
+            <div class="document-info">
+                <strong>Knowledge Base</strong>
+                <span>Existing indexed document</span>
+            </div>
+            <span class="status-dot" title="Indexed"></span>
+        </div>
+    </div>
+
+
+            <div class="sidebar-footer">
+                <div class="avatar">AI</div>
+                <div>
+                    <strong>Local AI Assistant</strong>
+                    <p>Powered by Qwen</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main chat area -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <span class="online-indicator"></span>
+                    <span class="topbar-label">DOCUMENT CHAT</span>
+                </div>
+                <div class="model-badge">
+                    <span class="model-dot"></span>
+                    Qwen 2.5 · Local
+                </div>
+            </header>
+
+            <section class="chat-area" id="chatArea">
+
+                <div class="welcome-screen" id="welcomeScreen">
+                    <div class="welcome-icon">✦</div>
+
+                    <p class="eyebrow">YOUR DOCUMENTS, UNDERSTOOD</p>
+
+                    <h1>Ask your PDF<br><span>anything.</span></h1>
+
+                    <p class="welcome-description">
+                        Explore your document, discover insights, and get
+                        answers grounded in its content.
+                    </p>
+
+                    <div class="suggestion-grid">
+                        <button class="suggestion-card"
+                                data-question="How is potential one-night revenue calculated?">
+                            <span>↗</span>
+                            <strong>Understand calculations</strong>
+                            <small>Ask about formulas and revenue</small>
+                        </button>
+
+                        <button class="suggestion-card"
+                                data-question="What restrictions apply when creating an accommodation?">
+                            <span>⌘</span>
+                            <strong>Find important rules</strong>
+                            <small>Explore requirements and validation</small>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="messages" id="messages"></div>
+
+            </section>
+
+            <footer class="composer-area">
+                <form id="chatForm" class="composer">
+                    <textarea
+                        id="questionInput"
+                        placeholder="Ask a question about your PDF..."
+                        rows="1"
+                        required
+                    ></textarea>
+
+                    <button type="submit" id="sendBtn" aria-label="Send message">
+                        ↑
+                    </button>
+                </form>
+
+                <p class="composer-note">
+                    AI-generated answers may be imperfect. Verify important details against the source.
+                </p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
